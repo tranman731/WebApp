@@ -21,7 +21,7 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
     @Override
     public boolean insert(OrderDetail orderDetail) {
         // TODO Auto-generated method stub
-        String sql = "INSERT INTO ORDER_DETAILS(ID, ORDER_ID, PRODUCT_ID, quantity, PRICE) VALUES(NULL, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ORDER_DETAILS(ID, ORDER_ID, PRODUCT_ID, QUANTITY, PRICE) VALUES(NULL, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, orderDetail.getOrderId());
@@ -62,13 +62,14 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
     @Override
     public OrderDetail find(int id) {
         // TODO Auto-generated method stub
-        String sql = "SELECT * FROM ORDER_DETAILS LIMT 1";
+        String sql = "SELECT * FROM ORDER_DETAILS WHERE ID=?";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                int orderId = rs.getInt("orderId");
-                int productId = rs.getInt("productId");
+                int orderId = rs.getInt("order_Id");
+                int productId = rs.getInt("product_Id");
                 int quantity = rs.getInt("quantity");
                 double price = rs.getDouble("price");
 
@@ -91,8 +92,8 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
-                int orderId = rs.getInt("orderId");
-                int productId = rs.getInt("productId");
+                int orderId = rs.getInt("order_Id");
+                int productId = rs.getInt("product_Id");
                 int quantity = rs.getInt("quantity");
                 double price = rs.getDouble("price");
 
@@ -105,4 +106,28 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
         return orderDetailList;
     }
 
+    @Override
+    public List<OrderDetail> findByOrder(int orderId) {
+        List<OrderDetail> orderDetailList = new ArrayList<>();
+        String sql = "SELECT * FROM ORDER_DETAILS WHERE ORDER_ID=?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, orderId);
+            
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int productId = rs.getInt("product_Id");
+                int quantity = rs.getInt("quantity");
+                double price = rs.getDouble("price");
+
+                orderDetailList.add(new OrderDetail(id, orderId, productId, quantity, price));
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+        return orderDetailList;
+
+    }
 }

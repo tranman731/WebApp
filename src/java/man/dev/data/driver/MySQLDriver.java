@@ -2,7 +2,7 @@ package man.dev.data.driver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import static man.dev.util.Constant.*;
+import static man.dev.util.Constants.*;
 
 
 public class MySQLDriver {

@@ -27,7 +27,6 @@ public class CategoryDaoImpl implements CategoryDao {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, category.getName());
             stmt.setString(2, category.getImage());
-            stmt.setInt(3, category.getId());
 
             return stmt.execute();
         } catch (Exception e) {
@@ -46,7 +45,7 @@ public class CategoryDaoImpl implements CategoryDao {
             stmt.setString(1, category.getName());
             stmt.setString(2, category.getImage());
             stmt.setInt(3, category.getId());
-
+            
             return stmt.execute();
         } catch (Exception e) {
             // TODO: handle exception
@@ -74,9 +73,10 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public Category find(int categoryId) {
         // TODO Auto-generated method stub
-        String sql = "SELECT * FROM CATEGORIES LIMIT 1";
+        String sql = "SELECT * FROM CATEGORIES WHERE ID=?";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, categoryId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

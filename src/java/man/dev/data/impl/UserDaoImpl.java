@@ -40,13 +40,13 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean update(User user) {
         // TODO Auto-generated method stub
-         String sql = "UPDATE USERS SET EMAIl=?, PASSWORD=?, ROLE=? WHERE ID=?";
-         try {
+        String sql = "UPDATE USERS SET EMAIL=?, PASSWORD=?, ROLE=? WHERE ID=?";
+        try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getPassword());
             stmt.setString(3, user.getRole());
-            stmt.setInt(4,user.getId());
+            stmt.setInt(4, user.getId());
 
             return stmt.execute();
         } catch (Exception e) {
@@ -79,7 +79,7 @@ public class UserDaoImpl implements UserDao {
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, userId);
-            
+
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -117,6 +117,26 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return userList;
+    }
+
+    @Override
+    public User find(String email, String password) {
+        String sql = "SELECT * FROM USERS WHERE EMAIL=? AND PASSWORD=?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String role = rs.getString("role");
+                return new User(id, email, password, role);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

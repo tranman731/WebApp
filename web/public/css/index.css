@@ -1,0 +1,195 @@
+/* Header */
+#header {
+    height: 80px;
+  }
+  .row {
+    height: 80px;
+  }
+  .menu-left {
+    height: 80px;
+  }
+  .menu-left > ul li {
+    display: inline-block;
+  }
+  .menu-left > ul li > a {
+    text-decoration: none;
+    color: #686868;
+    font-size: 14px;
+  }
+  .menu-left > ul {
+    padding: 20px;
+  }
+  .menu-left ul li {
+    padding: 10px;
+  }
+  .logo {
+    height: 80px;
+  }
+  .logo img {
+    height: 100px;
+  }
+  .menu-right {
+    height: 80px;
+  }
+  .menu-right > ul li {
+    display: inline-block;
+  }
+  .menu-right > ul li a {
+    text-decoration: none;
+    color: #686868;
+    font-size: 14px;
+  }
+  .menu-right > ul {
+    float: right;
+    padding: 20px;
+  }
+  .menu-right ul li {
+    padding: 10px;
+  }
+  /* Ẩn dropdown menu */
+.dropdown-menu {
+  display: none;
+}
+
+/* Hiển thị dropdown menu khi hover vào liên kết */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* End Header */
+/* Banner */
+.banner {
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+/* End Banner */
+/* Category */
+.category-left > ul li {
+    display: inline-block;
+  }
+  .category-left > ul li a {
+    text-decoration: none;
+    color: #686868;
+    font-size: 14px;
+  }
+  .category-left > ul {
+    padding: 20px;
+  }
+  .category-left ul li {
+    padding: 10px;
+  }
+  .category-right > ul li {
+    display: inline-block;
+  }
+  .category-right > ul li a {
+    text-decoration: none;
+    color: #686868;
+    font-size: 14px;
+  }
+  .category-right > ul {
+    padding: 20px;
+    float: right;
+  }
+  .category-right ul li {
+    padding: 10px;
+  }
+/* End Category */
+
+/* Product */
+#product {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#product > .container {
+    
+    width: 100%;
+    height: 1200px;
+    margin-bottom: 20px;
+
+}
+.content-top{
+	padding:4em 0 0;
+}
+.card {
+  margin-bottom: 30px;
+}
+
+.card-img-top {
+  height:300px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f1c40f;
+}
+.card-body a {
+  color :black;
+  float:right;
+}
+
+
+/* End Product */
+/* Footer */
+
+.footer h5 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 20px;
+  }
+  
+  .footer p {
+    font-size: 16px;
+    color: #6c757d;
+  }
+  
+  .footer ul li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  
+  .footer ul li a {
+    color: #343a40;
+  }
+  
+  .footer ul li i {
+    margin-right: 10px;
+    color: #6c757d;
+  }
+.footer-sub-1  ul  li  a {
+    text-decoration: none;
+    color:#777777
+}
+.footer-sub-2  ul  li  a {
+    text-decoration: none;
+    color:#777777
+}
+
+/* End Footer */
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+  

@@ -10,8 +10,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 import man.dev.data.DatabaseDao;
-import man.dev.data.dao.CategoryDao;
+import man.dev.data.model.Category;
+import man.dev.data.model.Product;
 
 /**
  *
@@ -19,36 +21,31 @@ import man.dev.data.dao.CategoryDao;
  */
 public class CategoryServlet extends BaseServlet {
 
+    
+    
+
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        switch (action) {
-            case "edit":
-                editCategory(categoryId);
-                break;
-            case "delete":
-                deleteCategory(categoryId);
-                break;
-            default:
-                throw new AssertionError();
-        }
-        response.sendRedirect("HomeServlet");
+        List<Product> productList = DatabaseDao.getInstance().getProductDao().findByCategory(categoryId);
+        
+        List<Category> categoryList = DatabaseDao.getInstance().getCategoryDao().findAll();
+        
+        request.setAttribute("categoryList", categoryList);
+        request.setAttribute("productList", productList);
+        request.getRequestDispatcher("category.jsp").include(request, response);
+        
+        
+      
     }
 
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    }
-
-    private void editCategory(int categoryId) {
-        CategoryDao categoryDao = DatabaseDao.getInstance().getCategoryDao();
         
     }
-
-    private void deleteCategory(int categoryId) {
-        CategoryDao categoryDao = DatabaseDao.getInstance().getCategoryDao();
-        categoryDao.delete(categoryId);
-    }
+  
 }
