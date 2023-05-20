@@ -8,8 +8,11 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 import man.dev.admin.BaseAdminServlet;
 import man.dev.data.DatabaseDao;
+import man.dev.data.dao.CategoryDao;
+import man.dev.data.model.Category;
 import man.dev.data.model.Product;
 
 /**
@@ -21,8 +24,12 @@ public class CreateProductServlet extends BaseAdminServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CategoryDao categoryDao = DatabaseDao.getInstance().getCategoryDao();
+        List<Category> categoryList = categoryDao.findAll();
 
-        request.getRequestDispatcher("admin/product/create.jsp").include(request, response);
+        request.setAttribute("categoryList", categoryList);
+
+        request.getRequestDispatcher("admin/products/create.jsp").include(request, response);
 
     }
 
@@ -36,7 +43,7 @@ public class CreateProductServlet extends BaseAdminServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         int view = Integer.parseInt(request.getParameter("view"));
-        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        int categoryId = Integer.parseInt(request.getParameter("category_Id"));
 
         Product product = new Product(name, description, image, price, quantity, view, categoryId);
 

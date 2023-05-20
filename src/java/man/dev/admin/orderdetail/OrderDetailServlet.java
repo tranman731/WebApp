@@ -10,7 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import man.dev.admin.BaseAdminServlet;
-import man.dev.data.DatabaseDao;
+import man.dev.data.Database;
+import man.dev.data.dao.OrderDetailDao;
 
 import man.dev.data.model.OrderDetail;
 
@@ -24,8 +25,9 @@ public class OrderDetailServlet extends BaseAdminServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int orderId = Integer.parseInt(request.getParameter("orderId"));
-        List<OrderDetail> orderDetailList = DatabaseDao.getInstance().getOrderDetailDao().findByOrder(orderId);
-
+        OrderDetailDao orderDetailDao = Database.getInstance().getOrderDetailDao();
+        List<OrderDetail> orderDetailList = orderDetailDao.findByOrder(orderId);
+        
         request.setAttribute("orderDetailList", orderDetailList);
 
         request.getRequestDispatcher("admin/orderdetail/show.jsp").include(request, response);

@@ -18,7 +18,7 @@
 </div>
 
 <!-- Categories Start -->
-<div class="container-fluid pt-5">
+<!--<div class="container-fluid pt-5">
     <div class="row px-xl-5 pb-3">
         <c:forEach items="${categoryList}" var="category">
         <div class="col-lg-4 col-md-6 pb-1">
@@ -36,7 +36,7 @@
       
         </c:forEach>
     </div>
-</div>
+</div>-->
 <!-- Categories End -->
 
 <!-- Products Start -->
@@ -70,10 +70,13 @@
                         <a href="ProductDetailServlet?productId=${product.id}" class="btn btn-sm text-dark p-0"
                            ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
                         >
-                        <a href="" class="btn btn-sm text-dark p-0"
-                           ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                            Cart</a
-                        >
+
+                        <form action="CartServlet?productId=${product.id}" method="post">
+                            <input type="hidden" name="productId" value="${product.id}"/>
+                            <input type="hidden" name="quantity" value="1"/>
+                            <input type="hidden" name="action" value="create"/>
+                            <i class="fas fa-eye text-primary mr-1"> <button type="submit" class="btn btn-sm text-dark p-0">Add to cart</button></i>
+                        </form>
                     </div>
 
                 </div>      

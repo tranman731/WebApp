@@ -37,10 +37,6 @@
         <servlet-class>man.dev.admin.category.DeleteCategoryServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateProductServlet</servlet-name>
-        <servlet-class>man.dev.admin.product.CreateProductServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>IndexProductServlet</servlet-name>
         <servlet-class>man.dev.admin.product.IndexProductServlet</servlet-class>
     </servlet>
@@ -93,8 +89,20 @@
         <servlet-class>man.dev.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>man.dev.CheckoutServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>man.dev.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShopServlet</servlet-name>
+        <servlet-class>man.dev.ShopServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateProductServlet</servlet-name>
+        <servlet-class>man.dev.admin.product.CreateProductServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
@@ -131,10 +139,6 @@
     <servlet-mapping>
         <servlet-name>DeleteCategoryServlet</servlet-name>
         <url-pattern>/DeleteCategoryServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CreateProductServlet</servlet-name>
-        <url-pattern>/CreateProductServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>IndexProductServlet</servlet-name>
@@ -189,7 +193,19 @@
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/CheckoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShopServlet</servlet-name>
+        <url-pattern>/ShopServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateProductServlet</servlet-name>
+        <url-pattern>/CreateProductServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -40,6 +40,20 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
     @Override
     public boolean update(OrderDetail orderDetail) {
         // TODO Auto-generated method stub
+        String sql = "UPDATE ORDER_DETAILS SET ORDER_ID=?, PRODUCT_ID=?, QUANTITY=?, PRICE=? WHERE ID=?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, orderDetail.getOrderId());
+            stmt.setInt(2, orderDetail.getProductId());
+            stmt.setInt(3, orderDetail.getQuantity());
+            stmt.setDouble(4, orderDetail.getPrice());
+            stmt.setInt(5, orderDetail.getId());
+
+            return stmt.execute();
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
         return false;
     }
 
@@ -113,7 +127,7 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, orderId);
-            
+
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

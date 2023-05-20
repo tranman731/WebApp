@@ -21,7 +21,7 @@ public class CreateCategoryServlet extends BaseAdminServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
         request.getRequestDispatcher("admin/category/create.jsp").include(request, response);
 
     }
@@ -31,8 +31,9 @@ public class CreateCategoryServlet extends BaseAdminServlet {
             throws ServletException, IOException {
         String name = request.getParameter("name");
         String image = request.getParameter("image");
+        String description = request.getParameter("description");
 
-        Category category = new Category(name, image);
+        Category category = new Category(name, image,description);
         DatabaseDao.getInstance().getCategoryDao().insert(category);
 
         response.sendRedirect("IndexCategoryServlet");

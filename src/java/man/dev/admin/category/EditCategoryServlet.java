@@ -40,6 +40,7 @@ public class EditCategoryServlet extends BaseAdminServlet {
 
         category.setName(request.getParameter("name"));
         category.setImage(request.getParameter("image"));
+        category.setDescription(request.getParameter("description"));
 
         DatabaseDao.getInstance().getCategoryDao().update(category);
         response.sendRedirect("IndexCategoryServlet");

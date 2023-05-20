@@ -13,6 +13,8 @@ public interface OrderDao {
     public boolean delete(int orderId);
 
     public Order find(int orderId);
+    
+    public Order find(String code);
 
     public List<Order> findAll();
 

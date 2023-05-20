@@ -241,7 +241,7 @@
                                         <th>Code</th>
                                         <th>Status</th>
                                         <th>User </th>
-                                        <th>#</th>
+                                     
 
                                     </tr>
                                 </thead>
@@ -251,7 +251,7 @@
                                         <th>Code</th>
                                         <th>Status</th>
                                         <th>User</th>
-                                        <th>#</th>
+                                        
 
                                     </tr>
                                 </tfoot>
@@ -284,9 +284,7 @@
                                             <td>
                                                 ${order.user.email}
                                             </td>
-                                            <td>
-                                                <a href="EditOrderServlet?orderId=${order.id}">Edit</a>
-                                            </td>
+                                           
 
 
                                         </tr>

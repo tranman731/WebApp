@@ -267,7 +267,7 @@
                                                 ${orderdetail.order.code}
                                             </td>
                                              <td>
-                                                ${orderdetail.product.name}
+                                                ${orderdetail.productId}
                                             </td>
                                             <td>
                                                  ${orderdetail.quantity}

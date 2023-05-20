@@ -236,6 +236,10 @@
                         <label for="exampleInputPassword1">Image</label>
                         <input type="text" name="image" class="form-control" value="${category.image}">
                     </div>     
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">Description</label>
+                        <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="${category.description}">
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 

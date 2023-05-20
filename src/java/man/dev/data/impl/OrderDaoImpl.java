@@ -124,7 +124,7 @@ public class OrderDaoImpl implements OrderDao {
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, status);
-            
+
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -159,12 +159,32 @@ public class OrderDaoImpl implements OrderDao {
             }
         } catch (SQLException ex) {
         }
-        
+
         for (Order order : orderList) {
             earning += order.total();
         }
-        
+
         return earning;
+    }
+
+    @Override
+    public Order find(String code) {
+        String sql = "SELECT * FROM ORDERS WHERE CODE=?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, code);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String status = rs.getString("status");
+                int userId = rs.getInt("user_id");
+                return new Order(id, code, status, userId);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

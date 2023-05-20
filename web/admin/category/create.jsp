@@ -233,6 +233,11 @@
                         <label for="exampleInputPassword1">Image</label>
                         <input type="text" name="image" class="form-control" placeholder="Enter Image" >
                     </div>     
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">Description</label>
+                        <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 

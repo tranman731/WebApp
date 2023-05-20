@@ -68,7 +68,7 @@
             </div>
             <div class="row align-items-center py-3 px-xl-5">
                 <div class="col-lg-3 d-none d-lg-block">
-                    <a href="" class="text-decoration-none">
+                    <a href="HomeServlet" class="text-decoration-none">
                         <h1 class="m-0 display-5 font-weight-semi-bold">
                             <span class="text-primary font-weight-bold border px-3 mr-1"
                                   >E</span
@@ -137,6 +137,9 @@
                                     <a href="" class="dropdown-item">Men's Dresses</a>
                                     <a href="" class="dropdown-item">Women's Dresses</a>
                                     <a href="" class="dropdown-item">Baby's Dresses</a>
+                                    <a href="" class="dropdown-item">Men's Dresses</a>
+                                    <a href="" class="dropdown-item">Women's Dresses</a>
+                                    <a href="" class="dropdown-item">Baby's Dresses</a>
                                 </div>
                             </div>
                             <a href="" class="nav-item nav-link">Shirts</a>
@@ -176,21 +179,8 @@
                             >
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="HomeServlet" class="nav-item nav-link active">Home</a>
-                                <a href="shop.html" class="nav-item nav-link">Shop</a>
-                                <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
-                                <div class="nav-item dropdown">
-                                    <a
-                                        href="#"
-                                        class="nav-link dropdown-toggle"
-                                        data-toggle="dropdown"
-                                        >Pages</a
-                                    >
-                                    <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                        <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                    </div>
-                                </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="ShopServlet" class="nav-item nav-link active">Shop</a>                        
+                               
                             </div>
                             <div class="navbar-nav ml-auto py-0">
                                 <c:if test="${sessionScope.user == null}">
@@ -258,25 +248,25 @@
                                 data-slide-to="2"
                                 ></li>
                         </ol>
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" style="height: 500px;">
                             <div class="carousel-item active">
                                 <img
                                     class="d-block w-100"
-                                    src="./public/img/cat-1.jpg"
+                                    src="https://img3.thuthuatphanmem.vn/uploads/2019/10/14/banner-fashion_113854663.jpg"
                                     alt="First slide"
                                     />
                             </div>
                             <div class="carousel-item">
                                 <img
                                     class="d-block w-100"
-                                    src="./public/img/cat-2.jpg"
+                                    src="https://img3.thuthuatphanmem.vn/uploads/2019/10/14/banner-gioi-thieu-thoi-trang-nu_113854788.jpg"
                                     alt="Second slide"
                                     />
                             </div>
                             <div class="carousel-item">
                                 <img
                                     class="d-block w-100"
-                                    src="./public/img/cat-3.jpg"
+                                    src="https://img3.thuthuatphanmem.vn/uploads/2019/10/14/banner-lookbook_113855163.jpg"
                                     alt="Third slide"
                                     />
                             </div>
